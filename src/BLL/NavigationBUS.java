@@ -78,9 +78,9 @@ public class NavigationBUS {
                 }
             }
                     break;
-//                  case "Nhân viên" :
-//                    node = new NhanvienJPanel();
-//                    break;
+                  case "timkiem" :
+                    node = new TimKiemGUI();
+                    break;
 //                  case "Thống kê" :
 //                    node = new ThongKe();
 //

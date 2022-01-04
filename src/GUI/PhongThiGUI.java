@@ -6,10 +6,13 @@
 package GUI;
 
 import BLL.CaThiBLL;
+import BLL.DanhSachPhongThiBLL;
 import BLL.KhoaThiBLL;
 import BLL.PhongThiBLL;
 import DTO.CaThiDTO;
+import DTO.DanhSachPhongThiDTO;
 import DTO.KhoaThiDTO;
+import DTO.PhieuDangKyDTO;
 import DTO.PhongThiDTO;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -34,28 +37,18 @@ public class PhongThiGUI extends javax.swing.JPanel {
     /**
      * Creates new form PhongThiGUI
      */
+    DanhSachPhongThiGUI ds;
     DefaultTableModel table;
     private ArrayList<CaThiDTO> arrayCa;
     public PhongThiGUI() throws Exception {
         initComponents();
-        hienThiDuLieuCaThi();
         hienThiDuLieuKhoaThi();
         doDuLieuLenBang();
         txtmpt.setEnabled(false);
         txttpt.setEnabled(false);
     }
     
-    public void hienThiDuLieuCaThi() throws Exception
-    {
-        ArrayList<CaThiDTO> arr = new ArrayList<CaThiDTO>();
-	 CaThiBLL loaiBLL = new CaThiBLL();
-	 arr = loaiBLL.getAllL_Hang();	 
-	 CaThiDTO loaiDTO = new CaThiDTO();
-	 for (int i = 0; i < arr.size(); i++) {
-		 loaiDTO = arr.get(i);
-		 cb1.addItem(loaiDTO.getCathiid()+"");		 
-	 }
-    }
+ 
     
     public void hienThiDuLieuKhoaThi() throws Exception
     {
@@ -65,7 +58,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
 	 KhoaThiDTO loaiDTO = new KhoaThiDTO();
 	 for (int i = 0; i < arr.size(); i++) {
 		 loaiDTO = arr.get(i);
-		 cb2.addItem(loaiDTO.getKhoathiid()+"-"+loaiDTO.getTenkhoathi());		 
+		 cb2.addItem(loaiDTO.getKhoathiid()+"");		 
 	 }
     }
     /**
@@ -84,8 +77,6 @@ public class PhongThiGUI extends javax.swing.JPanel {
         txtmpt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txttpt = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        cb1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         cb2 = new javax.swing.JComboBox<>();
         btnthem = new javax.swing.JButton();
@@ -109,12 +100,6 @@ public class PhongThiGUI extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Tên phòng thi:");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Ca thi:");
-
-        cb1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn mã ca" }));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Khóa thi:");
@@ -143,13 +128,13 @@ public class PhongThiGUI extends javax.swing.JPanel {
         jt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Mã Phòng thi", "Tên Phòng thi", "Ca Thi", "Khóa thi", "Trình độ", "Số lượng"
+                "Mã Phòng thi", "Tên Phòng thi", "Khóa thi", "Trình độ"
             }
         ));
         jt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -187,12 +172,10 @@ public class PhongThiGUI extends javax.swing.JPanel {
                         .addComponent(txtmpt))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cb1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txttpt)
                             .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(53, 53, 53)
@@ -206,7 +189,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
                         .addGap(32, 32, 32)
                         .addComponent(btnxoa, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnxds, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         jPanel2Layout.setVerticalGroup(
@@ -214,31 +197,21 @@ public class PhongThiGUI extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(txtmpt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(54, 54, 54)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnthem, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnxoa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txttpt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btnxds, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                            .addComponent(btnxoa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(9, 9, 9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtmpt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnxds, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txttpt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
@@ -278,12 +251,11 @@ public class PhongThiGUI extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    private void setTextFields(String toString, String toString0, String toString1,String toString2,String toString3) {
+    private void setTextFields(String toString, String toString0, String toString1,String toString2) {
         txtmpt.setText(toString);
         txttpt.setText(toString0);
-        cb1.setSelectedItem(toString1);
-        cb2.setSelectedItem(toString2);
-        cb3.setSelectedItem(toString3);
+        cb2.setSelectedItem(toString1);
+        cb3.setSelectedItem(toString2);
     }
 
     public void doDuLieuLenBang() {
@@ -292,11 +264,10 @@ public class PhongThiGUI extends javax.swing.JPanel {
             bus.docDuLieu();
             table = (DefaultTableModel) jt.getModel();
             table.setRowCount(0);
-            for (PhongThiDTO kh : bus.ds) {
+            for (PhongThiDTO kh : bus.ds1) {
                 Vector vt = new Vector();
                 vt.add(kh.getPhongthiid()); 
                 vt.add(kh.getTenphongthi());
-                vt.add(kh.getCathiid());
                 vt.add(kh.getKhoathiid());
                 vt.add(kh.getTrinhdo());
                 vt.add(kh.getSoluong());
@@ -336,7 +307,6 @@ public class PhongThiGUI extends javax.swing.JPanel {
     {
         txtmpt.setText("");
         txttpt.setText("");
-        cb1.setSelectedIndex(0);
         cb2.setSelectedIndex(0);
         cb3.setSelectedIndex(0);
 
@@ -345,7 +315,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             PhongThiBLL bus = new PhongThiBLL();
-
+            DanhSachPhongThiBLL busds= new DanhSachPhongThiBLL();
             bus.docDuLieu();
             txtmpt.setText(bus.remindPhongTHiID());
             PhongThiDTO phongthi = new PhongThiDTO();
@@ -355,20 +325,24 @@ public class PhongThiGUI extends javax.swing.JPanel {
                 txttpt.setText(cb3.getSelectedItem().toString() + "P" + txtmpt.getText());
                 phongthi.setPhongthiid(Integer.parseInt(txtmpt.getText()));
                 phongthi.setTenphongthi(txttpt.getText());
-                if (cb1.getSelectedIndex() == 0 || cb2.getSelectedIndex() == 0 || cb3.getSelectedIndex() == 0) {
+                if ( cb2.getSelectedIndex() == 0 || cb3.getSelectedIndex() == 0) {
                     JOptionPane.showMessageDialog(null, "Vui lòng chọn đầy đủ!", "Thông báo", 0);
                 } else {
-                    phongthi.setCathiid(Integer.parseInt(cb1.getSelectedItem().toString()));
-                    StringTokenizer st = new StringTokenizer(cb2.getSelectedItem().toString(), "-");
+//                    StringTokenizer st = new StringTokenizer(cb2.getSelectedItem().toString(), "-");
+//                    String id = st.nextToken();
+                    StringTokenizer st = new StringTokenizer(ds.lbtenphongthi.getText(), "-");
                     String id = st.nextToken();
-                    phongthi.setKhoathiid(Integer.parseInt(id));
+                    List<DanhSachPhongThiDTO> danhsachs = busds.getALLTheoPhongThi(Integer.parseInt(id));
+                    int size = danhsachs.size();
+                    phongthi.setKhoathiid(Integer.parseInt(cb2.getSelectedItem().toString()));
                     phongthi.setTrinhdo(cb3.getSelectedItem().toString());
+                    phongthi.setSoluong(size);
                     Vector head = new Vector();
                     head.add(phongthi.getPhongthiid());
                     head.add(phongthi.getTenphongthi());
-                    head.add(phongthi.getCathiid());
                     head.add(phongthi.getKhoathiid());
                     head.add(phongthi.getTrinhdo());
+                    head.add(phongthi.getSoluong());
                     int rs = bus.them(phongthi);
                     if (rs == 1) {
                         table.addRow(head);
@@ -408,21 +382,42 @@ public class PhongThiGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
          int i = jt.getSelectedRow();
         if (i >= 0)
-            setTextFields(jt.getValueAt(i, 0).toString(), jt.getValueAt(i, 1).toString(), jt.getValueAt(i, 2).toString(), jt.getValueAt(i, 3).toString(), jt.getValueAt(i, 4).toString());
+            setTextFields(jt.getValueAt(i, 0).toString(), jt.getValueAt(i, 1).toString(), jt.getValueAt(i, 2).toString(), jt.getValueAt(i, 3).toString());
     }//GEN-LAST:event_jtMouseClicked
 
     private void btnxdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxdsActionPerformed
         // TODO add your handling code here:
-        if(this.txtmpt.getText().equals(" ")) JOptionPane.showMessageDialog(null,"Vui lòng chọn Phòng thi cần tra cứu chi tiết!","Thông báo",0);
-        else {
-            DanhSachPhongThiGUI ctpn=new DanhSachPhongThiGUI();
-            ctpn.setVisible(true);
-            ctpn.lbtenphongthi.setText(txttpt.getText());
-            ctpn.phongthi=this;
-           // ctpn.QLPN=this;
-            ChiTietPN_DTO ctpnDTO=new ChiTietPN_DTO();            
-            ctpnDTO.setMA_PN(ctpn.lblMaPhieu.getText());
-            ctpn.getCTPN(ctpnDTO);*/
+        if (this.txtmpt.getText().equals(" ")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn Phòng thi cần tra cứu chi tiết!", "Thông báo", 0);
+        } else {
+            try {
+                DanhSachPhongThiGUI ctpn = new DanhSachPhongThiGUI();
+                ctpn.setVisible(true);
+                ctpn.lbtenphongthi.setText(txtmpt.getText() + "-" + txttpt.getText());
+                ctpn.lbltrinhdo.setText(cb3.getSelectedItem().toString());
+                ctpn.lblkhoathi.setText(cb2.getSelectedItem().toString());
+                ctpn.phongthi = this;
+                // ctpn.QLPN=this;
+                StringTokenizer st = new StringTokenizer(ctpn.lbtenphongthi.getText(), "-");
+                String id1 = st.nextToken();
+                DanhSachPhongThiDTO ctpnDTO = new DanhSachPhongThiDTO();
+                ctpnDTO.setPhongthiid(Integer.parseInt(id1));
+                ArrayList<PhieuDangKyDTO> arr = new ArrayList<PhieuDangKyDTO>();
+                DanhSachPhongThiBLL loaiBLL = new DanhSachPhongThiBLL();
+                arr = loaiBLL.getALL(Integer.parseInt(cb2.getSelectedItem().toString()),cb3.getSelectedItem().toString());
+                PhieuDangKyDTO loaiDTO = new PhieuDangKyDTO();
+                for (int i = 0; i < arr.size(); i++) {
+                    loaiDTO = arr.get(i);
+                    ctpn.cb.addItem(loaiDTO.getThisinhid() + "");
+                }
+                try {
+                    ctpn.getCTPN();
+                } catch (Exception ex) {
+                    Logger.getLogger(PhongThiGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(PhongThiGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnxdsActionPerformed
 
@@ -431,13 +426,11 @@ public class PhongThiGUI extends javax.swing.JPanel {
     private javax.swing.JButton btnthem;
     private javax.swing.JButton btnxds;
     private javax.swing.JButton btnxoa;
-    private javax.swing.JComboBox<String> cb1;
     private javax.swing.JComboBox<String> cb2;
-    private javax.swing.JComboBox<String> cb3;
+    public javax.swing.JComboBox<String> cb3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;

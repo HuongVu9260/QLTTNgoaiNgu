@@ -16,12 +16,12 @@ import java.util.Map;
  * @author HAI HUONG
  */
 public class PhongThiBLL {
-    public static List<PhongThiDTO> ds;
+    public static List<PhongThiDTO> ds1;
 
     public void docDuLieu() throws Exception {
         PhongThiDLL data = new PhongThiDLL();
-        if (ds == null) {
-            ds = data.docDuLieu();
+        if (ds1 == null) {
+            ds1 = data.docDuLieu();
         }
     }
     
@@ -34,16 +34,16 @@ public class PhongThiBLL {
         PhongThiDLL dao = new PhongThiDLL();
         int rs = dao.Them(dd);
         if (rs == 1) {
-            ds.add(dd);
+            ds1.add(dd);
         }
         return rs;
     }
 
     public int xoa(int vitri) {
         PhongThiDLL dao = new PhongThiDLL();
-        int rs = dao.xoa(ds.get(vitri).getPhongthiid());
+        int rs = dao.xoa(ds1.get(vitri).getPhongthiid());
         if (rs == 1) {
-            ds.remove(vitri);
+            ds1.remove(vitri);
         }
         return rs;
     }
@@ -52,13 +52,13 @@ public class PhongThiBLL {
         PhongThiDLL dao = new PhongThiDLL();
         int rs = dao.sua(dd);
         if (rs == 1) {
-            ds.set(vitri, dd);
+            ds1.set(vitri, dd);
         }
         return rs;
     }
 
     public PhongThiDTO getPhongthi(int phongthi_id) {
-        for (PhongThiDTO nv : ds) {
+        for (PhongThiDTO nv : ds1) {
             if (nv.getPhongthiid()== phongthi_id) {
                 return nv;
             }
@@ -69,7 +69,7 @@ public class PhongThiBLL {
    public String remindPhongTHiID() {// tự sinh mã
         int max = 0;
         String s ="";
-        for(PhongThiDTO ts : ds) {
+        for(PhongThiDTO ts : ds1) {
             int id = (ts.getPhongthiid());
             if(id > max) {
                 max = id;

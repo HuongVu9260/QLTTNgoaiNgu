@@ -26,7 +26,6 @@ public class PhongThiDLL {
             String qry = "Insert into phongthi Value(";
 			qry += "'" + phongthiDTO.getPhongthiid() + "'";
 			qry += ",'" + phongthiDTO.getTenphongthi() + "'";
-                        qry += ",'" + phongthiDTO.getCathiid() + "'";
                         qry += ",'" + phongthiDTO.getKhoathiid()+ "'";
                         qry += ",'" + phongthiDTO.getTrinhdo()+ "'";
                         qry += ",'" + phongthiDTO.getSoluong()+ "'";
@@ -51,9 +50,8 @@ public class PhongThiDLL {
 				PhongThiDTO pthi = new PhongThiDTO();
 				pthi.setPhongthiid(rs.getInt(1));
                                 pthi.setTenphongthi(rs.getString(2));
-                                pthi.setCathiid(rs.getInt(3));
-                                pthi.setKhoathiid(rs.getInt(4));
-                                pthi.setTrinhdo(rs.getString(5));
+                                pthi.setKhoathiid(rs.getInt(3));
+                                pthi.setTrinhdo(rs.getString(4));
 				ds.add(pthi);
 			}
 		}catch(Exception e) {
@@ -88,7 +86,6 @@ public class PhongThiDLL {
 			String qry = "Update phongthi set ";
 			qry += "phong_thi_id='"+ phongthiDTO.getPhongthiid() + "'";
                         qry += ",ten_phong_thi='"+ phongthiDTO.getTenphongthi() + "'";
-                        qry += ",ca_thi_id='"+ phongthiDTO.getCathiid() + "'";
                         qry += ",khoa_thi_id='"+ phongthiDTO.getKhoathiid()+ "'";
                         qry += ",trinh_do='"+ phongthiDTO.getTrinhdo()+ "'";
 			qry += " where phong_thi_id='" + phongthiDTO.getPhongthiid() + "'";

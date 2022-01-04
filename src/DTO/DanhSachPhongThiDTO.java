@@ -6,7 +6,7 @@
 package DTO;
 public class DanhSachPhongThiDTO {
     private int thisinhid;
-    private String phongthiid;
+    private int phongthiid;
     private String sobaodanh;
     private Float nghe;
     private Float noi;
@@ -14,7 +14,7 @@ public class DanhSachPhongThiDTO {
     private Float viet;
     public DanhSachPhongThiDTO(){
         thisinhid=0;
-        phongthiid=null;
+        phongthiid=0;
         sobaodanh=null;
         nghe=null;
         noi=null;
@@ -22,7 +22,7 @@ public class DanhSachPhongThiDTO {
         viet=null;
     }
 
-    public DanhSachPhongThiDTO(int thisinhid, String phongthiid, String sobaodanh, Float nghe, Float noi, Float viet) {
+    public DanhSachPhongThiDTO(int thisinhid, int phongthiid, String sobaodanh, Float nghe, Float noi, Float viet) {
         this.thisinhid = thisinhid;
         this.phongthiid = phongthiid;
         this.sobaodanh = sobaodanh;
@@ -39,11 +39,11 @@ public class DanhSachPhongThiDTO {
         this.thisinhid = thisinhid;
     }
 
-    public String getPhongthiid() {
+    public int getPhongthiid() {
         return phongthiid;
     }
 
-    public void setPhongthiid(String phongthiid) {
+    public void setPhongthiid(int phongthiid) {
         this.phongthiid = phongthiid;
     }
 

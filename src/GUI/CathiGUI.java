@@ -138,6 +138,11 @@ public class CathiGUI extends javax.swing.JPanel {
                 jbtnsuaMouseClicked(evt);
             }
         });
+        jbtnsua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnsuaActionPerformed(evt);
+            }
+        });
 
         jbtnquaylai.setBackground(new java.awt.Color(153, 255, 255));
         jbtnquaylai.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -233,7 +238,6 @@ public class CathiGUI extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jtxtmaca, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                         .addGap(2, 2, 2)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jtxtgiothi, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -359,6 +363,10 @@ public class CathiGUI extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_jbtnsuaMouseClicked
+
+    private void jbtnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnsuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnsuaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

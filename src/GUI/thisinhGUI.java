@@ -99,6 +99,7 @@ public class thisinhGUI extends javax.swing.JPanel {
         jLabel5.setText("CMND");
 
         jButton3.setBackground(new java.awt.Color(153, 255, 255));
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton3.setText("Chỉnh sửa");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,6 +113,7 @@ public class thisinhGUI extends javax.swing.JPanel {
         });
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Xóa");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -120,6 +122,7 @@ public class thisinhGUI extends javax.swing.JPanel {
         });
 
         jButton4.setBackground(new java.awt.Color(153, 255, 255));
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton4.setText("Quay lại");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +150,7 @@ public class thisinhGUI extends javax.swing.JPanel {
         });
 
         Searchbtn.setBackground(new java.awt.Color(153, 255, 255));
+        Searchbtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Searchbtn.setText("Tìm kiếm");
         Searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

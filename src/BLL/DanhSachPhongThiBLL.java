@@ -7,7 +7,11 @@ package BLL;
 
 import DLL.DanhSachPhongThiDLL;
 import DTO.DanhSachPhongThiDTO;
+import DTO.PhieuDangKyDTO;
+import DTO.ThiSinhDTO;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -15,7 +19,6 @@ import java.util.List;
  */
 public class DanhSachPhongThiBLL {
     public static List<DanhSachPhongThiDTO> ds;
-
     public void docDuLieu() throws Exception {
       DanhSachPhongThiDLL dao= new DanhSachPhongThiDLL();
         if (ds == null) {
@@ -23,13 +26,16 @@ public class DanhSachPhongThiBLL {
         }
     }
     
-    public void getALL(int id) throws Exception {
+    public ArrayList<PhieuDangKyDTO> getALL(int id1, String id) throws Exception {
       DanhSachPhongThiDLL dao= new DanhSachPhongThiDLL();
-        if (ds == null) {
-            ds = dao.getALL(id);
-        }
+        return dao.getALL(id1, id);
     }
-
+    
+    public ArrayList<DanhSachPhongThiDTO> getALLTheoPhongThi(int id1) throws Exception {
+      DanhSachPhongThiDLL dao= new DanhSachPhongThiDLL();
+        return dao.getALLTheoPhongThi(id1);
+    }
+    
     public int them(DanhSachPhongThiDTO dd) {
         DanhSachPhongThiDLL dao= new DanhSachPhongThiDLL();
         int rs = dao.Them(dd);
@@ -39,6 +45,16 @@ public class DanhSachPhongThiBLL {
         return rs;
     }
 
+    public int AddDataScoresBUS(int vitri, DanhSachPhongThiDTO bai_thi)
+    {
+        DanhSachPhongThiDLL data = new DanhSachPhongThiDLL();
+        int rs = data.AddDataScoresDAO(bai_thi);
+        if (rs == 1) {
+            ds.set(vitri, bai_thi);
+        }
+        return rs;
+    }
+    
     public int xoa(int vitri) {
         DanhSachPhongThiDLL dao= new DanhSachPhongThiDLL();
         int rs = dao.xoa(ds.get(vitri).getThisinhid());
@@ -55,8 +71,8 @@ public class DanhSachPhongThiBLL {
             ds.set(vitri, dd);
         }
         return rs;
-    }
-
+    } 
+    
     public DanhSachPhongThiDTO getDSPT (int ts_id) {
         for (DanhSachPhongThiDTO nv : ds) {
             if (nv.getThisinhid()== ts_id) {
@@ -65,4 +81,11 @@ public class DanhSachPhongThiBLL {
         }
         return null;
     }
+    
+    
+    public void docduLieusearch(Map<String,String> nv) throws Exception{
+      DanhSachPhongThiDLL dao = new DanhSachPhongThiDLL();
+                ds = dao.getThisinh(nv);
+             
+}
 }

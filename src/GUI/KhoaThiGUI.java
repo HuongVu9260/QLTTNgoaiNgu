@@ -106,6 +106,11 @@ public class KhoaThiGUI extends javax.swing.JPanel {
                 jbtnsuaMouseClicked(evt);
             }
         });
+        jbtnsua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnsuaActionPerformed(evt);
+            }
+        });
 
         jbtnql.setBackground(new java.awt.Color(153, 255, 255));
         jbtnql.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -402,6 +407,10 @@ public class KhoaThiGUI extends javax.swing.JPanel {
         if (i >= 0)
             setTextFields(jt1.getValueAt(i, 0).toString(), jt1.getValueAt(i, 2).toString(), jt1.getValueAt(i, 1).toString());
     }//GEN-LAST:event_jt1MouseClicked
+
+    private void jbtnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnsuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnsuaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
