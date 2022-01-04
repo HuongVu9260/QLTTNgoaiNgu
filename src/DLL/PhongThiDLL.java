@@ -29,6 +29,7 @@ public class PhongThiDLL {
                         qry += ",'" + phongthiDTO.getCathiid() + "'";
                         qry += ",'" + phongthiDTO.getKhoathiid()+ "'";
                         qry += ",'" + phongthiDTO.getTrinhdo()+ "'";
+                        qry += ",'" + phongthiDTO.getSoluong()+ "'";
 			qry += ")";
 			result = dbUtils.executeUpdate(qry);
         }

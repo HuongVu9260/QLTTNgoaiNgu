@@ -22,6 +22,13 @@ public class DanhSachPhongThiBLL {
             ds = dao.docDuLieu();
         }
     }
+    
+    public void getALL(int id) throws Exception {
+      DanhSachPhongThiDLL dao= new DanhSachPhongThiDLL();
+        if (ds == null) {
+            ds = dao.getALL(id);
+        }
+    }
 
     public int them(DanhSachPhongThiDTO dd) {
         DanhSachPhongThiDLL dao= new DanhSachPhongThiDLL();

@@ -366,7 +366,7 @@ public class PhieuDangKyGUI extends javax.swing.JPanel {
                             head1.add(pdk.getTrinhdo());
                             head1.add(format.format(pdk.getNgaydangky()));
                             int rs = busts.them(thisinh);
-                            int pd =buspdk.them(pdk);
+                            int pd = buspdk.them(pdk);
                             if (rs == 1 && pd==1) {
                                 JOptionPane.showMessageDialog(null, "Thêm thành công");
                             } else {

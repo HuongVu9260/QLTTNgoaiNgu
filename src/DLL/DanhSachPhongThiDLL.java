@@ -66,7 +66,27 @@ public class DanhSachPhongThiDLL {
                 }
 		return ds;
 	}
-    
+    //Lấy id thí sinh
+    public ArrayList<DanhSachPhongThiDTO> getALL(int id) throws Exception{
+		ArrayList<DanhSachPhongThiDTO> ds = new ArrayList<DanhSachPhongThiDTO>();
+                ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
+		try {
+			String qry = "select thi_sinh_id from danhsachphongthi where phong_thi_id='" + id + "'";
+			ResultSet rs = my.executeQuery(qry);
+			while(rs.next()) {
+				DanhSachPhongThiDTO dspt = new DanhSachPhongThiDTO();
+				dspt.setThisinhid(rs.getInt(1));
+				ds.add(dspt);
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null,"Lỗi đọc Database");
+		}
+                finally{
+                    my.close();
+                }
+		return ds;
+	}
     //Xóa
     public int xoa(int thisinhid) {
             int res = 0;

@@ -27,9 +27,9 @@ public class PhieuDangKyBLL {
     public int them(PhieuDangKyDTO dd) {
         PhieuDangKyDLL dao = new PhieuDangKyDLL();
         int rs = dao.Them(dd);
-        if (rs == 1) {
+        /*if (rs == 1) {
             ds.add(dd);
-        }
+        }*/
         return rs;
     }
 

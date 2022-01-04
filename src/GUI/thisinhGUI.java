@@ -57,7 +57,6 @@ public class thisinhGUI extends javax.swing.JPanel {
         jdcDOB = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         txtCMND = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -98,19 +97,6 @@ public class thisinhGUI extends javax.swing.JPanel {
         jLabel4.setText("Ngày sinh");
 
         jLabel5.setText("CMND");
-
-        jButton1.setBackground(new java.awt.Color(153, 255, 255));
-        jButton1.setText("Tạo mới");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton3.setBackground(new java.awt.Color(153, 255, 255));
         jButton3.setText("Chỉnh sửa");
@@ -247,15 +233,14 @@ public class thisinhGUI extends javax.swing.JPanel {
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(txtCMND, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(73, 73, 73))))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -299,7 +284,6 @@ public class thisinhGUI extends javax.swing.JPanel {
                     .addComponent(txtMaThiSinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtTenThiSinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -393,65 +377,6 @@ public class thisinhGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaThiSinhActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        try {
-            // TODO add your handling code here:
-            ThiSinhBLL bus = new ThiSinhBLL();
-            txtMaThiSinh.setText(bus.remindThisinhID());
-            bus.docDuLieu();
-            ThiSinhDTO thisinh = new ThiSinhDTO();
-            if(txtCMND.getText().equals("Nhập cmnd")||txtEmail.getText().equals("Nhập email")||txtTenThiSinh.getText().equals("Nhập tên thí sinh")||txtNoisinh.getText().equals("Nhập nơi sinh")||txtSdt.getText().equals("Nhập sđt")) 
-                JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin Nhân viên cần thêm mới!","Thông báo",0);
-            else{
-                thisinh.setThisinhid(Integer.parseInt(txtMaThiSinh.getText()));
-                String pattern="\\d{12}$";
-                String pattern0="\\d{10}$";
-                if(txtCMND.getText().matches(pattern )==false && txtCMND.getText().matches(pattern0 )==false) JOptionPane.showMessageDialog(null, "CMND bắc buộc phải 10 số hoặc 12 số","Thông báo",0);
-                else{
-                    thisinh.setCmnd(txtCMND.getText());
-                    String pattern1="^[a-zA-Z][\\w-]+@([\\w]+\\.[\\w]+|[\\w]+\\.[\\w]{2,}\\.[\\w]{2,})$";
-                    if(txtEmail.getText().matches(pattern1 )==false) JOptionPane.showMessageDialog(null, "Email không hợp lệ","Thông báo",0);
-                    else{
-                        thisinh.setEmail(txtEmail.getText());
-                        thisinh.setHoten(txtTenThiSinh.getText());
-                        thisinh.setNgaysinh( jdcDOB.getDate());
-                        thisinh.setNoisinh(txtNoisinh.getText());
-                        String pattern2="^0\\d{9,10}$";
-                        if(txtSdt.getText().matches(pattern2 )==false) JOptionPane.showMessageDialog(null, "SĐT phải bắt đầu bằng số 0, không được chứa các kí tự khác số và phải có từ 10 đến 11 chữ số!","Thông báo",0);
-                        else{
-                            thisinh.setSdt(txtSdt.getText());
-                            Vector head = new Vector();
-                            head.add(thisinh.getThisinhid());
-                            head.add(thisinh.getCmnd());
-                            head.add(thisinh.getEmail());
-                            head.add(thisinh.getHoten());
-                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                            head.add(format.format(thisinh.getNgaysinh()));
-                            head.add(thisinh.getNoisinh());
-                            head.add(thisinh.getSdt());
-                            int rs = bus.them(thisinh);
-                            if (rs == 1) {
-                                table.addRow(head);
-                                jt.setModel(table);
-                                JOptionPane.showMessageDialog(null, "Thêm thành công");
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
-                            }
-                            cleanView();
-                        }
-                    }
-                }
-            }
-            
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ThiSinhDTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         ThiSinhBLL bll = new ThiSinhBLL();
@@ -539,7 +464,6 @@ public class thisinhGUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Searchbtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
