@@ -27,6 +27,8 @@ public class PhongThiDLL {
 			qry += "'" + phongthiDTO.getPhongthiid() + "'";
 			qry += ",'" + phongthiDTO.getTenphongthi() + "'";
                         qry += ",'" + phongthiDTO.getCathiid() + "'";
+                        qry += ",'" + phongthiDTO.getKhoathiid()+ "'";
+                        qry += ",'" + phongthiDTO.getTrinhdo()+ "'";
 			qry += ")";
 			result = dbUtils.executeUpdate(qry);
         }
@@ -46,9 +48,11 @@ public class PhongThiDLL {
 			ResultSet rs = my.executeQuery(qry);
 			while(rs.next()) {
 				PhongThiDTO pthi = new PhongThiDTO();
-				pthi.setPhongthiid(rs.getString(1));
+				pthi.setPhongthiid(rs.getInt(1));
                                 pthi.setTenphongthi(rs.getString(2));
                                 pthi.setCathiid(rs.getInt(3));
+                                pthi.setKhoathiid(rs.getInt(4));
+                                pthi.setTrinhdo(rs.getString(5));
 				ds.add(pthi);
 			}
 		}catch(Exception e) {
@@ -65,7 +69,7 @@ public class PhongThiDLL {
     public int xoa(int phongthiid) {
             int res = 0;
 		try {
-			String qry = "delete from phongthi where phong_thi_id'" + phongthiid + "'";
+			String qry = "delete from phongthi where phong_thi_id='" + phongthiid + "'";
 			ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
                         res = my.executeUpdate(qry);
 		}
@@ -82,8 +86,10 @@ public class PhongThiDLL {
 		try {
 			String qry = "Update phongthi set ";
 			qry += "phong_thi_id='"+ phongthiDTO.getPhongthiid() + "'";
-                        qry += "thi_sinh_id='"+ phongthiDTO.getTenphongthi() + "'";
-                        qry += "thi_sinh_id='"+ phongthiDTO.getCathiid() + "'";
+                        qry += ",ten_phong_thi='"+ phongthiDTO.getTenphongthi() + "'";
+                        qry += ",ca_thi_id='"+ phongthiDTO.getCathiid() + "'";
+                        qry += ",khoa_thi_id='"+ phongthiDTO.getKhoathiid()+ "'";
+                        qry += ",trinh_do='"+ phongthiDTO.getTrinhdo()+ "'";
 			qry += " where phong_thi_id='" + phongthiDTO.getPhongthiid() + "'";
 			ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
                         res = my.executeUpdate(qry);

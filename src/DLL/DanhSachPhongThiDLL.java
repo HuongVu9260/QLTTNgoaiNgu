@@ -24,6 +24,11 @@ public class DanhSachPhongThiDLL {
             String qry = "Insert into danhsachphongthi Value(";
 			qry += "'" + dsptDTO.getThisinhid()+ "'";
                         qry += ",'" + dsptDTO.getPhongthiid()+ "'";
+                        qry += ",'" + dsptDTO.getSobaodanh()+ "'";
+                        qry += ",'" + dsptDTO.getNghe()+ "'";
+                        qry += ",'" + dsptDTO.getNoi()+ "'";
+                        qry += ",'" + dsptDTO.getDoc()+ "'";
+                        qry += ",'" + dsptDTO.getViet()+ "'"; 
 			qry += ")";
 			result = dbUtils.executeUpdate(qry);
         }
@@ -45,6 +50,11 @@ public class DanhSachPhongThiDLL {
 				DanhSachPhongThiDTO dspt = new DanhSachPhongThiDTO();
 				dspt.setThisinhid(rs.getInt(1));
                                 dspt.setPhongthiid(rs.getString(2));
+                                dspt.setSobaodanh(rs.getString(3));
+                                dspt.setNghe(rs.getFloat(4));
+                                dspt.setNoi(rs.getFloat(5));
+                                dspt.setDoc(rs.getFloat(6));
+                                dspt.setViet(rs.getFloat(7));
 				ds.add(dspt);
 			}
 		}catch(Exception e) {
@@ -61,7 +71,7 @@ public class DanhSachPhongThiDLL {
     public int xoa(int thisinhid) {
             int res = 0;
 		try {
-			String qry = "delete from danhsachphongthi where thi_sinh_id'" + thisinhid + "'";
+			String qry = "delete from danhsachphongthi where thi_sinh_id='" + thisinhid + "'";
 			ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
                         res = my.executeUpdate(qry);
 		}
@@ -78,7 +88,13 @@ public class DanhSachPhongThiDLL {
 		try {
 			String qry = "Update danhsachphongthi set ";
 			qry += "phong_thi_id='"+ dsptDTO.getPhongthiid()+ "'";
+                        qry += ",so_bao_danh='" + dsptDTO.getSobaodanh()+ "'";
+                        qry += ",nghe='" + dsptDTO.getNghe()+ "'";
+                        qry += ",noi='" + dsptDTO.getNoi()+ "'";
+                        qry += ",doc='" + dsptDTO.getDoc()+ "'";
+                        qry += ",viet='" + dsptDTO.getViet()+ "'";
 			qry += " where thi_sinh_id='" + dsptDTO.getThisinhid()+ "'";
+                        
 			ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
                         res = my.executeUpdate(qry);
 		}

@@ -7,7 +7,9 @@ package BLL;
 
 import DLL.KhoaThiDLL;
 import DTO.KhoaThiDTO;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -22,6 +24,18 @@ public class KhoaThiBLL {
             ds = data.docDuLieu();
         }
     }
+    
+    public ArrayList<KhoaThiDTO> getAllL_Hang() throws Exception{
+        KhoaThiDLL da = new KhoaThiDLL();
+        return da.docDuLieu();
+    }
+    
+    public void docduLieusearch(Map<String,String> nv) throws Exception{
+      KhoaThiDLL dao = new KhoaThiDLL();
+       
+                ds = dao.getThisinh(nv);
+             
+}
 
     public int them(KhoaThiDTO dd) {
         KhoaThiDLL dao = new KhoaThiDLL();

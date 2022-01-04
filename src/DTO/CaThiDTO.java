@@ -9,12 +9,12 @@ import java.util.Date;
 
 public class CaThiDTO {
     private int cathiid;
-    private Date giothi;
+    private String giothi;
     public CaThiDTO(){
         cathiid=0;
         giothi=null;
     }
-    public CaThiDTO(int cathiid, Date giothi){
+    public CaThiDTO(int cathiid, String giothi){
         this.cathiid=cathiid;
         this.giothi=giothi;
     }
@@ -27,13 +27,14 @@ public class CaThiDTO {
         this.cathiid = cathiid;
     }
 
-    public Date getGiothi() {
+    public String getGiothi() {
         return giothi;
     }
 
-    public void setGiothi(Date giothi) {
+    public void setGiothi(String giothi) {
         this.giothi = giothi;
     }
+
     
     
 }

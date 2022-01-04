@@ -8,6 +8,9 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import GUI.thisinhGUI;
+import GUI.CathiGUI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class NavigationBUS {
     private JPanel root;
     private String kindSelected = "";
@@ -49,20 +52,32 @@ public class NavigationBUS {
                 case "thisinh":
                     node = new thisinhGUI();
                     break;
-//                case "Giá":
-//                    node = new GiaPanel();
-//                   
-//                    break;
-//                case "Đoàn" :
-//                    node = new DoanJPanel();
-//                     
-//                    break;
-//                case "Chi Phí":
-//                    node =new ChiPhiJPanel();
-//                    break;
-//                case "Khách hàng" :
-//                    node = new KhachHangJPanel();
-//                    break;
+                case "cathi":
+                   node = new CathiGUI();
+                  
+                    break;
+                case "khoathi" :
+                    node = new KhoaThiGUI();
+                     
+                    break;
+                case "phongthi":
+            {
+                try {
+                    node =new PhongThiGUI();
+                } catch (Exception ex) {
+                    Logger.getLogger(NavigationBUS.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                    break;
+                case "phieudangky" :
+            {
+                try {
+                    node = new PhieuDangKyGUI();
+                } catch (Exception ex) {
+                    Logger.getLogger(NavigationBUS.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                    break;
 //                  case "Nhân viên" :
 //                    node = new NhanvienJPanel();
 //                    break;
@@ -112,11 +127,11 @@ public class NavigationBUS {
     private void setChangeBackgroud (String kind){
         listItem.forEach((item) -> {
             if(item.getKind ().equalsIgnoreCase (kind)) {
-                item.getJpn ().setBackground (new Color (119, 153, 204));
-                item.getJlb ().setBackground (new Color (119, 153, 204));
+                item.getJpn ().setBackground (new Color (153,204,255));
+                item.getJlb ().setBackground (new Color (153,204,255));
             }else{
-                item.getJpn ().setBackground (new Color (180,159,220));
-                item.getJlb().setBackground(new Color (180,159,220));
+                item.getJpn ().setBackground (new Color (204,255,255));
+                item.getJlb().setBackground(new Color (204,255,255));
             }
         });  
     }    

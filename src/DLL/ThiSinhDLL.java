@@ -98,11 +98,11 @@ public class ThiSinhDLL {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			String qry = "Update thisinh set ";
 			qry += "cmnd='"+ thisinhDTO.getCmnd() + "'";
-                        qry += "email='"+ thisinhDTO.getEmail() + "'";
-                        qry += "ho_ten='"+ thisinhDTO.getHoten() + "'";
-                        qry += ",ngaysinh='"+ dateFormat.format(thisinhDTO.getNgaysinh())+ "'";
-                        qry += ",cmnd='"+ thisinhDTO.getNoisinh() + "'";
-                        qry += ",cmnd='"+ thisinhDTO.getSdt() + "'";
+                        qry += ",email='"+ thisinhDTO.getEmail() + "'";
+                        qry += ",ho_ten='"+ thisinhDTO.getHoten() + "'";
+                        qry += ",ngay_sinh='"+ dateFormat.format(thisinhDTO.getNgaysinh())+ "'";
+                        qry += ",noi_sinh='"+ thisinhDTO.getNoisinh() + "'";
+                        qry += ",sdt='"+ thisinhDTO.getSdt() + "'";
 			qry += " where thi_sinh_id='" + thisinhDTO.getThisinhid() + "'";
 			ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
                         res = my.executeUpdate(qry);

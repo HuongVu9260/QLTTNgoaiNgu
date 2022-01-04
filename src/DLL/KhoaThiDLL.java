@@ -86,9 +86,9 @@ public class KhoaThiDLL {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			String qry = "Update khoathi set ";
 			qry += "khoa_thi_id='"+ khoathiDTO.getKhoathiid() + "'";
-                        qry += "thi_sinh_id='"+ dateFormat.format(khoathiDTO.getNgaybatdau()) + "'";
-                        qry += "thi_sinh_id='"+ khoathiDTO.getTenkhoathi() + "'";
-			qry += " where phong_thi_id='" + khoathiDTO.getKhoathiid() + "'";
+                        qry += ",ngay_bat_dau='"+ dateFormat.format(khoathiDTO.getNgaybatdau()) + "'";
+                        qry += ",ten_khoa='"+ khoathiDTO.getTenkhoathi() + "'";
+			qry += " where khoa_thi_id='" + khoathiDTO.getKhoathiid() + "'";
 			ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
                         res = my.executeUpdate(qry);
 		}
@@ -98,4 +98,36 @@ public class KhoaThiDLL {
 		}
                 return res;
 	}
+    
+    public List<KhoaThiDTO> getThisinh(Map<String,String> ts)throws Exception{
+               List<KhoaThiDTO> ds = new ArrayList<KhoaThiDTO>();
+              ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
+		try {
+			StringBuffer query = new StringBuffer("Select * from khoathi where");
+                        /*f(ts.get("ma_khoa_thi_id")!= null && !ts.get("ma_khoa_thi_id").equals("")){
+                            query.append("ma_khoa_thi_id = "+ts.get("ma_khoa_thi_id"));
+                        }*/
+                        if(ts.get("ten_khoa")!= null&& !ts.get("ten_khoa").equals("")){
+                            query.append(" ten_khoa = '"+ts.get("ten_khoa")+"'");
+                            
+                        }
+                        System.out.println(query.toString());
+			ResultSet rs = my.executeQuery(query.toString());
+			while(rs.next()) {
+				KhoaThiDTO khoathi = new KhoaThiDTO();
+				khoathi.setKhoathiid(rs.getInt(1));
+                                khoathi.setNgaybatdau(rs.getDate(2));
+                                khoathi.setTenkhoathi(rs.getString(3));
+				ds.add(khoathi);
+			}
+                        return ds;
+		}catch(Exception e) {
+			System.out.println(e);
+			JOptionPane.showMessageDialog(null,"Lỗi đọc Database");
+		}
+                finally{
+                    my.close();
+                }
+                return null;
+        }
 }

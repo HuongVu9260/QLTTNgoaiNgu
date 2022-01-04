@@ -7,7 +7,9 @@ package BLL;
 
 import DLL.PhongThiDLL;
 import DTO.PhongThiDTO;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -22,7 +24,12 @@ public class PhongThiBLL {
             ds = data.docDuLieu();
         }
     }
-
+    
+     public ArrayList<PhongThiDTO> getAllL_Hang() throws Exception{
+        PhongThiDLL da = new PhongThiDLL();
+        return da.docDuLieu();
+    }
+     
     public int them(PhongThiDTO dd) {
         PhongThiDLL dao = new PhongThiDLL();
         int rs = dao.Them(dd);
@@ -32,7 +39,7 @@ public class PhongThiBLL {
         return rs;
     }
 
-    public int xoa(String vitri) {
+    public int xoa(int vitri) {
         PhongThiDLL dao = new PhongThiDLL();
         int rs = dao.xoa(ds.get(vitri).getPhongthiid());
         if (rs == 1) {
@@ -50,7 +57,7 @@ public class PhongThiBLL {
         return rs;
     }
 
-    public PhongThiDTO getPhongthi(String phongthi_id) {
+    public PhongThiDTO getPhongthi(int phongthi_id) {
         for (PhongThiDTO nv : ds) {
             if (nv.getPhongthiid()== phongthi_id) {
                 return nv;
@@ -58,4 +65,19 @@ public class PhongThiBLL {
         }
         return null;
     }
+
+   public String remindPhongTHiID() {// tự sinh mã
+        int max = 0;
+        String s ="";
+        for(PhongThiDTO ts : ds) {
+            int id = (ts.getPhongthiid());
+            if(id > max) {
+                max = id;
+            }
+        }
+        for(int i = 0 ; i < 3-String.valueOf(max+1).length(); i++) {
+            s+="0";
+        }
+        return s+(max+1);
+   }
 }

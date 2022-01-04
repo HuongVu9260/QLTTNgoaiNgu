@@ -26,7 +26,7 @@ public class CaThiDLL {
             ConnectionUtils dbUtils= new ConnectionUtils("localhost", "root", "", "ngoaingu");
             String qry = "Insert into cathi Value(";
 			qry += "'" + cathiDTO.getCathiid()+ "'";
-                        qry += ",'" + format.format(cathiDTO.getGiothi())+ "'";
+                        qry += ",'" + cathiDTO.getGiothi()+ "'";
 			qry += ")";
 			result = dbUtils.executeUpdate(qry);
         }
@@ -38,7 +38,7 @@ public class CaThiDLL {
     }
     
     //Xem DS
-    public ArrayList<CaThiDTO> docDuLieu() throws Exception{
+    public ArrayList<CaThiDTO> docDuLieu() throws Exception {
 		ArrayList<CaThiDTO> ds = new ArrayList<CaThiDTO>();
                 ConnectionUtils my = new ConnectionUtils("localhost","root","","ngoaingu");
 		try {
@@ -47,7 +47,7 @@ public class CaThiDLL {
 			while(rs.next()) {
 				CaThiDTO cathi = new CaThiDTO();
 				cathi.setCathiid(rs.getInt(1));
-                                cathi.setGiothi(rs.getDate(2));
+                                cathi.setGiothi(rs.getString(2));
 				ds.add(cathi);
 			}
 		}catch(Exception e) {
