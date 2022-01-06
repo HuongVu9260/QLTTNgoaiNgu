@@ -15,10 +15,11 @@ import java.util.List;
  * @author HAI HUONG
  */
 public class PhieuDangKyBLL {
+
     public static List<PhieuDangKyDTO> ds;
 
     public void docDuLieu() throws Exception {
-      PhieuDangKyDLL data = new PhieuDangKyDLL();
+        PhieuDangKyDLL data = new PhieuDangKyDLL();
         if (ds == null) {
             ds = data.docDuLieu();
         }
@@ -34,7 +35,7 @@ public class PhieuDangKyBLL {
     }
 
     public int xoa(int vitri) {
-           PhieuDangKyDLL dao = new PhieuDangKyDLL();
+        PhieuDangKyDLL dao = new PhieuDangKyDLL();
         int rs = dao.xoa(ds.get(vitri).getThisinhid());
         if (rs == 1) {
             ds.remove(vitri);
@@ -43,7 +44,7 @@ public class PhieuDangKyBLL {
     }
 
     public int sua(int vitri, PhieuDangKyDTO dd) {
-             PhieuDangKyDLL dao = new PhieuDangKyDLL();
+        PhieuDangKyDLL dao = new PhieuDangKyDLL();
         int rs = dao.sua(dd);
         if (rs == 1) {
             ds.set(vitri, dd);
@@ -51,14 +52,13 @@ public class PhieuDangKyBLL {
         return rs;
     }
 
-    public PhieuDangKyDTO getKetquathi (int thisinhid) {
+    public PhieuDangKyDTO getKetquathi(int thisinhid) {
         for (PhieuDangKyDTO kq : ds) {
-            if (kq.getThisinhid()== thisinhid) {
+            if (kq.getThisinhid() == thisinhid) {
                 return kq;
             }
         }
         return null;
     }
 
-    
 }

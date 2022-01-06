@@ -10,20 +10,23 @@ public class PhongThiDTO {
     private int khoathiid;
     private String trinhdo;
     private int soluong;
+    private String giothi;
     public PhongThiDTO(){
         phongthiid=0;
         tenphongthi=null;
         khoathiid=0;
         trinhdo=null;
         soluong=0;
+        giothi=null;
     }
     
-    public PhongThiDTO(int phongthiid, String tenphongthi, int khoathiid,String trinhdo, int soluong){
+    public PhongThiDTO(int phongthiid, String tenphongthi, int khoathiid,String trinhdo, int soluong, String giothi){
         this.phongthiid=phongthiid;
         this.tenphongthi=tenphongthi;
         this.khoathiid=khoathiid;
         this.trinhdo=trinhdo;
         this.soluong=soluong;
+        this.giothi=giothi;
     }
 
     public int getPhongthiid() {
@@ -67,6 +70,14 @@ public class PhongThiDTO {
 
     public void setSoluong(int soluong) {
         this.soluong = soluong;
+    }
+
+    public String getGiothi() {
+        return giothi;
+    }
+
+    public void setGiothi(String giothi) {
+        this.giothi = giothi;
     }
     
     

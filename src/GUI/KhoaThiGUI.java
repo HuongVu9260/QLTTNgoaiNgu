@@ -24,7 +24,9 @@ import javax.swing.table.DefaultTableModel;
  * @author HAI HUONG
  */
 public class KhoaThiGUI extends javax.swing.JPanel {
+
     DefaultTableModel table;
+
     /**
      * Creates new form KhoaThiGUI
      */
@@ -63,25 +65,29 @@ public class KhoaThiGUI extends javax.swing.JPanel {
         jt = new javax.swing.JScrollPane();
         jt1 = new javax.swing.JTable();
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(81, 13, 39));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 0, 204));
+        jLabel1.setForeground(new java.awt.Color(153, 153, 0));
         jLabel1.setText("KHÓA THI");
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(125, 21, 59));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 0));
         jLabel2.setText("Mã Khóa Thi:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 0));
         jLabel3.setText("Tên Khóa Thi:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 0));
         jLabel4.setText("Ngày bắt đầu thi:");
 
-        jbtnthem.setBackground(new java.awt.Color(153, 255, 255));
-        jbtnthem.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jbtnthem.setBackground(new java.awt.Color(81, 13, 39));
+        jbtnthem.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jbtnthem.setForeground(new java.awt.Color(153, 153, 0));
         jbtnthem.setText("Thêm");
         jbtnthem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,8 +95,9 @@ public class KhoaThiGUI extends javax.swing.JPanel {
             }
         });
 
-        jbtnxoa.setBackground(new java.awt.Color(153, 255, 255));
-        jbtnxoa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jbtnxoa.setBackground(new java.awt.Color(81, 13, 39));
+        jbtnxoa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jbtnxoa.setForeground(new java.awt.Color(153, 153, 0));
         jbtnxoa.setText("Xóa");
         jbtnxoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -98,8 +105,9 @@ public class KhoaThiGUI extends javax.swing.JPanel {
             }
         });
 
-        jbtnsua.setBackground(new java.awt.Color(153, 255, 255));
-        jbtnsua.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jbtnsua.setBackground(new java.awt.Color(81, 13, 39));
+        jbtnsua.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jbtnsua.setForeground(new java.awt.Color(153, 153, 0));
         jbtnsua.setText("Sửa");
         jbtnsua.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,18 +120,22 @@ public class KhoaThiGUI extends javax.swing.JPanel {
             }
         });
 
-        jbtnql.setBackground(new java.awt.Color(153, 255, 255));
-        jbtnql.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jbtnql.setBackground(new java.awt.Color(81, 13, 39));
+        jbtnql.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jbtnql.setForeground(new java.awt.Color(153, 153, 0));
         jbtnql.setText("Quay lại");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 0));
         jLabel5.setText("--------Tìm Kiếm Khóa Thi--------");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 153, 0));
         jLabel7.setText("Tên Khóa Thi:");
 
-        jbnttimkiem.setBackground(new java.awt.Color(153, 255, 255));
-        jbnttimkiem.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jbnttimkiem.setBackground(new java.awt.Color(81, 13, 39));
+        jbnttimkiem.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jbnttimkiem.setForeground(new java.awt.Color(153, 153, 0));
         jbnttimkiem.setText("Tìm kiếm");
         jbnttimkiem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -162,7 +174,7 @@ public class KhoaThiGUI extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(txtSortTNV, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51)
-                        .addComponent(jbnttimkiem, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
+                        .addComponent(jbnttimkiem, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -185,7 +197,7 @@ public class KhoaThiGUI extends javax.swing.JPanel {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jbtnxoa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jbtnql))))))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
             .addComponent(jt)
         );
         jPanel2Layout.setVerticalGroup(
@@ -220,7 +232,7 @@ public class KhoaThiGUI extends javax.swing.JPanel {
                             .addComponent(txtSortTNV, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbnttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(61, 61, 61)))
-                .addComponent(jt, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE))
+                .addComponent(jt, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -236,9 +248,9 @@ public class KhoaThiGUI extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -273,7 +285,7 @@ public class KhoaThiGUI extends javax.swing.JPanel {
             table.setRowCount(0);
             for (KhoaThiDTO kh : bus.ds) {
                 Vector vt = new Vector();
-                vt.add(kh.getKhoathiid()); 
+                vt.add(kh.getKhoathiid());
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 vt.add(format.format(kh.getNgaybatdau()));
                 vt.add(kh.getTenkhoathi());
@@ -286,15 +298,13 @@ public class KhoaThiGUI extends javax.swing.JPanel {
 
     }
 
-     public void doDuLieuSearch(Map<String,String> map)
-    {
+    public void doDuLieuSearch(Map<String, String> map) {
         KhoaThiBLL bus = new KhoaThiBLL();
         try {
             bus.docduLieusearch(map);
             table = (DefaultTableModel) jt1.getModel();
             table.setRowCount(0);
-            for(KhoaThiDTO kh : bus.ds)
-            {
+            for (KhoaThiDTO kh : bus.ds) {
                 Vector vt = new Vector();
                 vt.add(kh.getKhoathiid());
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -306,9 +316,9 @@ public class KhoaThiGUI extends javax.swing.JPanel {
         } catch (Exception ex) {
             Logger.getLogger(KhoaThiDTO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-     
+
     public void cleanView() //Xóa trắng các TextField
     {
         txtmkt.setText("");
@@ -316,35 +326,35 @@ public class KhoaThiGUI extends javax.swing.JPanel {
         jdcDOB.setDate(null);
 
     }
-    
+
     private void jbtnthemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnthemMouseClicked
         // TODO add your handling code here:
-        try{
-        KhoaThiBLL bus = new KhoaThiBLL();
+        try {
+            KhoaThiBLL bus = new KhoaThiBLL();
             txtmkt.setText(bus.remindKhoathiID());
             bus.docDuLieu();
             KhoaThiDTO khoathi = new KhoaThiDTO();
-            if(txttkt.getText().equals("Nhập tên khóa thi")||jdcDOB.getDate().equals("Nhập Ngày bắt đầu")) 
-                JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin Nhân viên cần thêm mới!","Thông báo",0);
-            else{
+            if (txttkt.getText().equals("Nhập tên khóa thi") || jdcDOB.getDate().equals("Nhập Ngày bắt đầu")) {
+                JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin Nhân viên cần thêm mới!", "Thông báo", 0);
+            } else {
                 khoathi.setKhoathiid(Integer.parseInt(txtmkt.getText()));
                 khoathi.setNgaybatdau(jdcDOB.getDate());
                 khoathi.setTenkhoathi(txttkt.getText());
-                            Vector head = new Vector();
-                            head.add(khoathi.getKhoathiid());
-                            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                            head.add(format.format(khoathi.getNgaybatdau()));
-                            head.add(khoathi.getTenkhoathi());;
-                            int rs = bus.them(khoathi);
-                            if (rs == 1) {
-                                table.addRow(head);
-                                jt1.setModel(table);
-                                JOptionPane.showMessageDialog(null, "Thêm thành công");
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
-                            }
-                            cleanView();
-                        }
+                Vector head = new Vector();
+                head.add(khoathi.getKhoathiid());
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                head.add(format.format(khoathi.getNgaybatdau()));
+                head.add(khoathi.getTenkhoathi());;
+                int rs = bus.them(khoathi);
+                if (rs == 1) {
+                    table.addRow(head);
+                    jt1.setModel(table);
+                    JOptionPane.showMessageDialog(null, "Thêm thành công");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Mã đã tồn tại. Thêm thất bại");
+                }
+                cleanView();
+            }
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(KhoaThiDTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -352,7 +362,7 @@ public class KhoaThiGUI extends javax.swing.JPanel {
 
     private void jbnttimkiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbnttimkiemMouseClicked
         // TODO add your handling code here:
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         map.put("ten_khoa", txtSortTNV.getText());
         doDuLieuSearch(map);
     }//GEN-LAST:event_jbnttimkiemMouseClicked
@@ -391,7 +401,7 @@ public class KhoaThiGUI extends javax.swing.JPanel {
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 int check = bll.sua(i, khoathi);
                 if (check == 1) {
-                    table.setValueAt(khoathi.getTenkhoathi(), i,1);
+                    table.setValueAt(khoathi.getTenkhoathi(), i, 1);
                     table.setValueAt(format.format(khoathi.getNgaybatdau()), i, 2);
                     jt1.setModel(table);
                     JOptionPane.showMessageDialog(null, "Sửa thành công");
@@ -404,8 +414,9 @@ public class KhoaThiGUI extends javax.swing.JPanel {
     private void jt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt1MouseClicked
         // TODO add your handling code here:
         int i = jt1.getSelectedRow();
-        if (i >= 0)
+        if (i >= 0) {
             setTextFields(jt1.getValueAt(i, 0).toString(), jt1.getValueAt(i, 2).toString(), jt1.getValueAt(i, 1).toString());
+        }
     }//GEN-LAST:event_jt1MouseClicked
 
     private void jbtnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnsuaActionPerformed

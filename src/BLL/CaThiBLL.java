@@ -15,20 +15,21 @@ import java.util.List;
  * @author HAI HUONG
  */
 public class CaThiBLL {
+
     public static List<CaThiDTO> ds;
 
     public void docDuLieu() throws Exception {
-      CaThiDLL data = new CaThiDLL();
+        CaThiDLL data = new CaThiDLL();
         if (ds == null) {
             ds = data.docDuLieu();
         }
     }
-    
-    public ArrayList<CaThiDTO> getAllL_Hang() throws Exception{
+
+    public ArrayList<CaThiDTO> getAllL_Hang() throws Exception {
         CaThiDLL da = new CaThiDLL();
         return da.docDuLieu();
     }
-    
+
     public int them(CaThiDTO dd) {
         CaThiDLL dao = new CaThiDLL();
         int rs = dao.Them(dd);
@@ -39,7 +40,7 @@ public class CaThiBLL {
     }
 
     public int xoa(int vitri) {
-             CaThiDLL dao= new CaThiDLL();
+        CaThiDLL dao = new CaThiDLL();
         int rs = dao.xoa(ds.get(vitri).getCathiid());
         if (rs == 1) {
             ds.remove(vitri);
@@ -48,7 +49,7 @@ public class CaThiBLL {
     }
 
     public int sua(int vitri, CaThiDTO dd) {
-           CaThiDLL dao= new CaThiDLL();
+        CaThiDLL dao = new CaThiDLL();
         int rs = dao.sua(dd);
         if (rs == 1) {
             ds.set(vitri, dd);
@@ -56,9 +57,9 @@ public class CaThiBLL {
         return rs;
     }
 
-    public CaThiDTO getCathi (int cathi_id) {
+    public CaThiDTO getCathi(int cathi_id) {
         for (CaThiDTO nv : ds) {
-            if (nv.getCathiid()== cathi_id) {
+            if (nv.getCathiid() == cathi_id) {
                 return nv;
             }
         }

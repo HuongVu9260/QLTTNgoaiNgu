@@ -16,6 +16,7 @@ import java.util.Map;
  * @author HAI HUONG
  */
 public class PhongThiBLL {
+
     public static List<PhongThiDTO> ds1;
 
     public void docDuLieu() throws Exception {
@@ -24,12 +25,12 @@ public class PhongThiBLL {
             ds1 = data.docDuLieu();
         }
     }
-    
-     public ArrayList<PhongThiDTO> getAllL_Hang() throws Exception{
+
+    public ArrayList<PhongThiDTO> getAllL_Hang() throws Exception {
         PhongThiDLL da = new PhongThiDLL();
         return da.docDuLieu();
     }
-     
+
     public int them(PhongThiDTO dd) {
         PhongThiDLL dao = new PhongThiDLL();
         int rs = dao.Them(dd);
@@ -59,25 +60,25 @@ public class PhongThiBLL {
 
     public PhongThiDTO getPhongthi(int phongthi_id) {
         for (PhongThiDTO nv : ds1) {
-            if (nv.getPhongthiid()== phongthi_id) {
+            if (nv.getPhongthiid() == phongthi_id) {
                 return nv;
             }
         }
         return null;
     }
 
-   public String remindPhongTHiID() {// tự sinh mã
+    public String remindPhongTHiID() {// tự sinh mã
         int max = 0;
-        String s ="";
-        for(PhongThiDTO ts : ds1) {
+        String s = "";
+        for (PhongThiDTO ts : ds1) {
             int id = (ts.getPhongthiid());
-            if(id > max) {
+            if (id > max) {
                 max = id;
             }
         }
-        for(int i = 0 ; i < 3-String.valueOf(max+1).length(); i++) {
-            s+="0";
+        for (int i = 0; i < 3 - String.valueOf(max + 1).length(); i++) {
+            s += "0";
         }
-        return s+(max+1);
-   }
+        return s + (max + 1);
+    }
 }

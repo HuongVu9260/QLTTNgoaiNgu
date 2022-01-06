@@ -40,6 +40,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
     DanhSachPhongThiGUI ds;
     DefaultTableModel table;
     private ArrayList<CaThiDTO> arrayCa;
+
     public PhongThiGUI() throws Exception {
         initComponents();
         hienThiDuLieuKhoaThi();
@@ -47,20 +48,18 @@ public class PhongThiGUI extends javax.swing.JPanel {
         txtmpt.setEnabled(false);
         txttpt.setEnabled(false);
     }
-    
- 
-    
-    public void hienThiDuLieuKhoaThi() throws Exception
-    {
+
+    public void hienThiDuLieuKhoaThi() throws Exception {
         ArrayList<KhoaThiDTO> arr = new ArrayList<KhoaThiDTO>();
-	 KhoaThiBLL loaiBLL = new KhoaThiBLL();
-	 arr = loaiBLL.getAllL_Hang();	 
-	 KhoaThiDTO loaiDTO = new KhoaThiDTO();
-	 for (int i = 0; i < arr.size(); i++) {
-		 loaiDTO = arr.get(i);
-		 cb2.addItem(loaiDTO.getKhoathiid()+"");		 
-	 }
+        KhoaThiBLL loaiBLL = new KhoaThiBLL();
+        arr = loaiBLL.getAllL_Hang();
+        KhoaThiDTO loaiDTO = new KhoaThiDTO();
+        for (int i = 0; i < arr.size(); i++) {
+            loaiDTO = arr.get(i);
+            cb2.addItem(loaiDTO.getKhoathiid() + "");
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,28 +86,39 @@ public class PhongThiGUI extends javax.swing.JPanel {
         cb3 = new javax.swing.JComboBox<>();
         btnxds = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(81, 13, 39));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 0, 204));
+        jLabel1.setForeground(new java.awt.Color(153, 153, 0));
         jLabel1.setText("PHÒNG THI");
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(125, 21, 59));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 0));
         jLabel2.setText("Mã Phòng Thi:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtmpt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtmpt.setForeground(new java.awt.Color(153, 153, 0));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 0));
         jLabel3.setText("Tên phòng thi:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txttpt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txttpt.setForeground(new java.awt.Color(153, 153, 0));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 0));
         jLabel5.setText("Khóa thi:");
 
-        cb2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cb2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cb2.setForeground(new java.awt.Color(153, 153, 0));
         cb2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn khóa thi" }));
 
-        btnthem.setBackground(new java.awt.Color(153, 255, 255));
-        btnthem.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnthem.setBackground(new java.awt.Color(81, 13, 39));
+        btnthem.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnthem.setForeground(new java.awt.Color(153, 153, 0));
         btnthem.setText("Thêm");
         btnthem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -116,8 +126,9 @@ public class PhongThiGUI extends javax.swing.JPanel {
             }
         });
 
-        btnxoa.setBackground(new java.awt.Color(153, 255, 255));
-        btnxoa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnxoa.setBackground(new java.awt.Color(81, 13, 39));
+        btnxoa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnxoa.setForeground(new java.awt.Color(153, 153, 0));
         btnxoa.setText("Xóa");
         btnxoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -144,14 +155,17 @@ public class PhongThiGUI extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jt);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 153, 0));
         jLabel6.setText("Trình độ:");
 
-        cb3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cb3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cb3.setForeground(new java.awt.Color(153, 153, 0));
         cb3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chọn trình độ", "A2", "B1" }));
 
-        btnxds.setBackground(new java.awt.Color(153, 255, 255));
-        btnxds.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnxds.setBackground(new java.awt.Color(81, 13, 39));
+        btnxds.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnxds.setForeground(new java.awt.Color(153, 153, 0));
         btnxds.setText("Xem danh sách thí sinh");
         btnxds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +185,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtmpt))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,8 +202,8 @@ public class PhongThiGUI extends javax.swing.JPanel {
                         .addComponent(btnthem, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnxoa, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnxds, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(285, Short.MAX_VALUE))
+                    .addComponent(btnxds, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(241, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         jPanel2Layout.setVerticalGroup(
@@ -251,7 +265,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    private void setTextFields(String toString, String toString0, String toString1,String toString2) {
+    private void setTextFields(String toString, String toString0, String toString1, String toString2) {
         txtmpt.setText(toString);
         txttpt.setText(toString0);
         cb2.setSelectedItem(toString1);
@@ -266,7 +280,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
             table.setRowCount(0);
             for (PhongThiDTO kh : bus.ds1) {
                 Vector vt = new Vector();
-                vt.add(kh.getPhongthiid()); 
+                vt.add(kh.getPhongthiid());
                 vt.add(kh.getTenphongthi());
                 vt.add(kh.getKhoathiid());
                 vt.add(kh.getTrinhdo());
@@ -280,29 +294,6 @@ public class PhongThiGUI extends javax.swing.JPanel {
 
     }
 
-//     public void doDuLieuSearch(Map<String,String> map)
-//    {
-//        KhoaThiBLL bus = new KhoaThiBLL();
-//        try {
-//            bus.docduLieusearch(map);
-//            table = (DefaultTableModel) jt1.getModel();
-//            table.setRowCount(0);
-//            for(KhoaThiDTO kh : bus.ds)
-//            {
-//                Vector vt = new Vector();
-//                vt.add(kh.getKhoathiid());
-//                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//                vt.add(format.format(kh.getNgaybatdau()));
-//                vt.add(kh.getTenkhoathi());
-//                table.addRow(vt);
-//            }
-//            jt1.setModel(table);
-//        } catch (Exception ex) {
-//            Logger.getLogger(KhoaThiDTO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//    }
-     
     public void cleanView() //Xóa trắng các TextField
     {
         txtmpt.setText("");
@@ -315,7 +306,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             PhongThiBLL bus = new PhongThiBLL();
-            DanhSachPhongThiBLL busds= new DanhSachPhongThiBLL();
+            DanhSachPhongThiBLL busds = new DanhSachPhongThiBLL();
             bus.docDuLieu();
             txtmpt.setText(bus.remindPhongTHiID());
             PhongThiDTO phongthi = new PhongThiDTO();
@@ -325,18 +316,18 @@ public class PhongThiGUI extends javax.swing.JPanel {
                 txttpt.setText(cb3.getSelectedItem().toString() + "P" + txtmpt.getText());
                 phongthi.setPhongthiid(Integer.parseInt(txtmpt.getText()));
                 phongthi.setTenphongthi(txttpt.getText());
-                if ( cb2.getSelectedIndex() == 0 || cb3.getSelectedIndex() == 0) {
+                if (cb2.getSelectedIndex() == 0 || cb3.getSelectedIndex() == 0) {
                     JOptionPane.showMessageDialog(null, "Vui lòng chọn đầy đủ!", "Thông báo", 0);
                 } else {
 //                    StringTokenizer st = new StringTokenizer(cb2.getSelectedItem().toString(), "-");
 //                    String id = st.nextToken();
-                    StringTokenizer st = new StringTokenizer(ds.lbtenphongthi.getText(), "-");
-                    String id = st.nextToken();
-                    List<DanhSachPhongThiDTO> danhsachs = busds.getALLTheoPhongThi(Integer.parseInt(id));
-                    int size = danhsachs.size();
+//                    StringTokenizer st = new StringTokenizer(ds.lbtenphongthi.getText(), "-");
+//                    String id = st.nextToken();
+//                    List<DanhSachPhongThiDTO> danhsachs = busds.getALLTheoPhongThi(Integer.parseInt(id));
+//                    int size = danhsachs.size();
                     phongthi.setKhoathiid(Integer.parseInt(cb2.getSelectedItem().toString()));
                     phongthi.setTrinhdo(cb3.getSelectedItem().toString());
-                    phongthi.setSoluong(size);
+                    phongthi.setSoluong(0);
                     Vector head = new Vector();
                     head.add(phongthi.getPhongthiid());
                     head.add(phongthi.getTenphongthi());
@@ -361,7 +352,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
 
     private void btnxoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnxoaMouseClicked
         // TODO add your handling code here:
-         int i = jt.getSelectedRow();
+        int i = jt.getSelectedRow();
         if (i >= 0) {
             int result = JOptionPane.showConfirmDialog(null, "Xác nhận xóa ?", "Xác nhận", JOptionPane.YES_NO_OPTION);
             if (result == JOptionPane.YES_OPTION) {
@@ -380,9 +371,10 @@ public class PhongThiGUI extends javax.swing.JPanel {
 
     private void jtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMouseClicked
         // TODO add your handling code here:
-         int i = jt.getSelectedRow();
-        if (i >= 0)
+        int i = jt.getSelectedRow();
+        if (i >= 0) {
             setTextFields(jt.getValueAt(i, 0).toString(), jt.getValueAt(i, 1).toString(), jt.getValueAt(i, 2).toString(), jt.getValueAt(i, 3).toString());
+        }
     }//GEN-LAST:event_jtMouseClicked
 
     private void btnxdsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxdsActionPerformed
@@ -404,16 +396,13 @@ public class PhongThiGUI extends javax.swing.JPanel {
                 ctpnDTO.setPhongthiid(Integer.parseInt(id1));
                 ArrayList<PhieuDangKyDTO> arr = new ArrayList<PhieuDangKyDTO>();
                 DanhSachPhongThiBLL loaiBLL = new DanhSachPhongThiBLL();
-                arr = loaiBLL.getALL(Integer.parseInt(cb2.getSelectedItem().toString()),cb3.getSelectedItem().toString());
+                arr = loaiBLL.getALL(Integer.parseInt(cb2.getSelectedItem().toString()), cb3.getSelectedItem().toString());
+                ArrayList<DanhSachPhongThiDTO> arrr = new ArrayList<DanhSachPhongThiDTO>();
                 PhieuDangKyDTO loaiDTO = new PhieuDangKyDTO();
                 for (int i = 0; i < arr.size(); i++) {
                     loaiDTO = arr.get(i);
                     ctpn.cb.addItem(loaiDTO.getThisinhid() + "");
-                }
-                try {
-                    ctpn.getCTPN();
-                } catch (Exception ex) {
-                    Logger.getLogger(PhongThiGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    ctpn.data();
                 }
             } catch (Exception ex) {
                 Logger.getLogger(PhongThiGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -437,7 +426,7 @@ public class PhongThiGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jt;
-    private javax.swing.JTextField txtmpt;
+    public javax.swing.JTextField txtmpt;
     private javax.swing.JTextField txttpt;
     // End of variables declaration//GEN-END:variables
 }

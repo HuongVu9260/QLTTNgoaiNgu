@@ -29,6 +29,7 @@ public class TimKiemGUI extends javax.swing.JPanel {
      * Creates new form TimKiemGUI
      */
     DefaultTableModel table;
+
     public TimKiemGUI() {
         initComponents();
     }
@@ -53,21 +54,26 @@ public class TimKiemGUI extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jt = new javax.swing.JTable();
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(81, 13, 39));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 0, 204));
+        jLabel1.setForeground(new java.awt.Color(153, 153, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("TÌM KIẾM THÔNG TIN");
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(125, 21, 59));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 0));
         jLabel2.setText("Tên Thí Sinh:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 0));
         jLabel3.setText("Số Điện Thoại:");
 
-        btntimkiem.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btntimkiem.setBackground(new java.awt.Color(81, 13, 39));
+        btntimkiem.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btntimkiem.setForeground(new java.awt.Color(153, 153, 0));
         btntimkiem.setText("Tìm Kiếm");
         btntimkiem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,7 +111,7 @@ public class TimKiemGUI extends javax.swing.JPanel {
                 .addGap(56, 56, 56)
                 .addComponent(btntimkiem)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,11 +137,10 @@ public class TimKiemGUI extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel1)
-                .addContainerGap(305, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,8 +162,7 @@ public class TimKiemGUI extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    public void doDuLieuSearch(Map<String,String> map)
-    {
+    public void doDuLieuSearch(Map<String, String> map) {
         DanhSachPhongThiBLL bus = new DanhSachPhongThiBLL();
         PhongThiBLL buspt = new PhongThiBLL();
         try {
@@ -166,14 +170,14 @@ public class TimKiemGUI extends javax.swing.JPanel {
             table = (DefaultTableModel) jt.getModel();
             table.setRowCount(0);
             for (DanhSachPhongThiDTO kh : bus.ds) {
-                    Vector vt = new Vector();
-                    vt.add(kh.getSobaodanh());
-                    vt.add(kh.getPhongthiid());
-                    vt.add(kh.getNghe());
-                    vt.add(kh.getNoi());
-                    vt.add(kh.getDoc());
-                    vt.add(kh.getViet());
-                    table.addRow(vt);
+                Vector vt = new Vector();
+                vt.add(kh.getSobaodanh());
+                vt.add(kh.getPhongthiid());
+                vt.add(kh.getNghe());
+                vt.add(kh.getNoi());
+                vt.add(kh.getDoc());
+                vt.add(kh.getViet());
+                table.addRow(vt);
 
             }
 
@@ -186,8 +190,8 @@ public class TimKiemGUI extends javax.swing.JPanel {
     }
     private void btntimkiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntimkiemMouseClicked
         // TODO add your handling code here:
-        Map<String,String> map = new HashMap<>();
-        map.put("ho_ten",txttts.getText());
+        Map<String, String> map = new HashMap<>();
+        map.put("ho_ten", txttts.getText());
         map.put("sdt", txtsdt.getText());
         doDuLieuSearch(map);
     }//GEN-LAST:event_btntimkiemMouseClicked
